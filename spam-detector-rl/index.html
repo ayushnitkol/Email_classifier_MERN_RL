@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Email Classifier using Reinforcement Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Spam Email Classifier</h1>
+            <p class="subtitle">Advanced approach for intelligent email classification</p>
+        </div>
+    </header>
+
+    <!-- Main Application -->
+    <main class="container">
+        <!-- Classification Interface -->
+        <section class="classification-section">
+            <div class="card">
+                <div class="card__body">
+                    <h2>Email Classification</h2>
+                    <div class="form-group">
+                        <label for="email-input" class="form-label">Enter Email Content</label>
+                        <textarea 
+                            id="email-input" 
+                            class="form-control email-textarea" 
+                            placeholder="Paste your email content here for classification..."
+                            rows="8"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="classify-btn" class="btn btn--primary">
+                            <span class="btn-text">Classify Email</span>
+                            <span class="btn-loader hidden">Processing...</span>
+                        </button>
+                        <div class="sample-buttons">
+                            <button id="load-spam-btn" class="btn btn--outline btn--sm">Load Sample Spam</button>
+                            <button id="load-ham-btn" class="btn btn--outline btn--sm">Load Sample Ham</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="results-section" class="results-section hidden">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Classification Results</h3>
+                        <div class="result-display">
+                            <div class="classification-result">
+                                <span class="result-label">Classification:</span>
+                                <span id="result-classification" class="status"></span>
+                            </div>
+                            <div class="confidence-section">
+                                <span class="result-label">Confidence Level:</span>
+                                <div class="confidence-bar">
+                                    <div id="confidence-fill" class="confidence-fill"></div>
+                                </div>
+                                <span id="confidence-text" class="confidence-text">0%</span>
+                            </div>
+                        </div>
+                        <div class="features-detected">
+                            <h4>Key Features Detected:</h4>
+                            <div id="detected-features" class="features-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Sections -->
+        <div class="info-grid">
+            <!-- How It Works -->
+            <section class="info-section">
+                <div class="card">
+                    <div class="card__body">
+                        <h3>How It Works</h3>
+                        <p>Our reinforcement learning agent uses Q-Learning to classify emails:</p>
+                        <ul>
+                            <li><strong>Feature Extraction:</strong> TF-IDF vectorization and keyword analysis</li>
+                            <li><strong>State Representation:</strong> Email features as environment states</li>
+                            <li><strong>Action Space:</strong> Classify as spam or ham</li>
+                            <li><strong>Reward System:</strong> +1 for correct classification, -1 for incorrect</li>
+                            <li><strong>Learning:</strong> Q-table updates based on classification rewards</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Example Emails Section -->
+        <section class="examples-section">
+            <div class="card">
+                <div class="card__body">
+                    <h3>Example Emails</h3>
+                    <div class="examples-grid">
+                        <div class="example-group">
+                            <h4 class="spam-header">Spam Examples</h4>
+                            <div id="spam-examples" class="example-list"></div>
+                        </div>
+                        <div class="example-group">
+                            <h4 class="ham-header">Ham Examples</h4>
+                            <div id="ham-examples" class="example-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
