@@ -2,7 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+/* Gmail-like theme variables */
+:root{
+  --gmail-red: #D9302C;
+  --gmail-red-dark: #B1271F;
+  --gmail-bg: #F1F3F4;
+  --gmail-surface: #FFFFFF;
+  --gmail-muted: #5F6368;
+  --gmail-shadow: 0 1px 2px rgba(60,64,67,0.12), 0 1px 3px rgba(60,64,67,0.08);
 }
- 
+
+/* Base body */
+body {
+  background: var(--gmail-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* small utility classes that match Gmail aesthetic */
+.gmail-btn {
+  @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium;
+}
+.gmail-primary {
+  background: var(--gmail-red);
+  color: white;
+  border-radius: 9999px;
+  padding: 8px 12px;
+  box-shadow: var(--gmail-shadow);
+}
+.gmail-primary:hover {
+  background: var(--gmail-red-dark);
+}
+
+/* card */
+.gmail-card {
+  background: var(--gmail-surface);
+  border-radius: 12px;
+  box-shadow: var(--gmail-shadow);
+}
+
+/* subtle divider like Gmail */
+.gmail-divider {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* small text muted */
+.text-muted {
+  color: var(--gmail-muted);
+}
+
+/* small helper for icon circles */
+.icon-circle {
+  @apply w-9 h-9 flex items-center justify-center rounded-full;
+}
